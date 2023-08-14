@@ -2,10 +2,8 @@ from django.db import models
 
 
 class User(models.Model):
-    """
-    Пользовательская модель:
-    Имя, Фамилия, Отчество, телефон, e-mail.
-    """
+
+    # Пользовательская модель:
     first_name = models.CharField(max_length=50)
     second_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -14,9 +12,8 @@ class User(models.Model):
 
 
 class Level(models.Model):
-    """
-    Уровень сложности перевала в разное время года.
-    """
+
+    # Уровень сложности перевала по временам года.
     winter = models.CharField(max_length=2, blank=True)
     summer = models.CharField(max_length=2, blank=True)
     autumn = models.CharField(max_length=2, blank=True)
@@ -24,21 +21,17 @@ class Level(models.Model):
 
 
 class Coord(models.Model):
-    """
-    Координаты:
-    Широта, долгота, высота.
-    """
+
+    # Координаты:
+    # Широта, долгота, высота.
     latitude = models.FloatField()
     longitude = models.FloatField()
     height = models.IntegerField()
 
 
 class Mountain(models.Model):
-    """
-    Модель описания горного перевала: Статус модерации сообщения, Пользовательское наименование, официальное
-    наименование, прочее наименование, подключение, дата и время создания сообщения, id координат, id уровня
-    сложности перевала, id пользователя.
-    """
+
+    # Модель описания горного перевала
     class Status(models.TextChoices):
         NEW = 'NEW', 'New'
         PENDING = 'PEN', 'Pending'
